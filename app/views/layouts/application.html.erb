@@ -9,6 +9,35 @@
   </head>
 
   <body>
+    <!--  navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+
+
+        <%if logged_in?%>
+          <a class="navbar-brand" href="<%= user_path(current_user) %>"/>Hi, <%= current_user.username%></a>
+          <%= link_to "Log Out", signout_path, method: :post, class: "navbar-brand"%>
+          <%= link_to "All Episodes", '/episodes', method: :get, class: "navbar-brand"%>
+          <%= link_to "All Guests", '/guests', method: :get, class: "navbar-brand"%>
+          <%= link_to "All Appearances", '/appearances', method: :get, class: "navbar-brand"%>
+        <% else %>
+        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
+        <a class="navbar-brand" href="<%= signin_path %>"/>Sign In</a>
+          <%end%>
+        </div>
+
+
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+           <!--  nav here -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
     <%= yield %>
   </body>
 </html>

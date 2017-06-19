@@ -1,0 +1,23 @@
+<h1><%= @guest.name%></h1>
+<h3>Occupation: <%= @guest.occupation%></h3>
+
+<h3>Episodes</h3>
+  <% if @guest.episodes.count > 0 %>
+    <ul>
+      <% @guest.episodes.each do |episode|%>
+      <li>
+        <%= link_to episode.date, episode_path(episode) %>
+      </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>
+      This episode does not have any episodes added to it yet
+    </p>
+
+
+
+    <%end%>
+    <p>
+      <%= link_to "Create New Appearance", '/appearances/new' %>
+    </p>

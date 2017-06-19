@@ -1,0 +1,12 @@
+<%=form_for(@appearance) do |f| %>
+  <%= f.label "Select Guest" %> <br>
+  <%= f.collection_select :guest_id, Guest.all,:id, :name, include_blank: false %><br><br>
+
+  <%= f.label "Select Episode to Add Guest to" %> <br>
+  <%= f.collection_select :episode_id, Episode.all,:id, :date, include_blank: false %><br><br>
+  
+  <%= f.label :rating%> <br>
+  <%= f.select :rating, [1,2,3,4,5]%><br><br>
+
+  <%= f.submit %>
+<%end%>
